@@ -12,26 +12,26 @@
 <body>
 
   <!-- Top Navigation Bar -->
-  <header class="navbar">
+  <div class="navbar">
     <div class="nav-container">
       <div class="logo">
         <span class="logo-icon">✉</span>
-        <span class="logo-text">Contact Portal</span>
+        <span class="logo-text">Kisan Setu</span>
       </div>
     </div>
-  </header>
+  </div>
 
   <!-- Main Container -->
-  <main class="main-container">
+  <div class="main-container">
     <div class="contact-card-wrapper">
       
       <!-- Left Column: Information Card -->
-      <aside class="info-sidebar">
+      <div class="info-sidebar">
         <div>
-          <span class="tagline">GET IN TOUCH</span>
-          <h1 class="info-title">Let's connect.</h1>
+          <span class="tagline">EXPERT SUPPORT</span>
+          <h1 class="info-title">Get crop guidance.</h1>
           <p class="info-description">
-            Have a question, feedback, or need help? Fill out the form and submit your response. It will be recorded directly into the SQL database.
+            Facing a pest outbreak, soil issue, or low yield? Describe your farming challenge here. Our network of agronomists and crop scientists will analyze the details and get back to you with tailored, actionable solutions.
           </p>
         </div>
 
@@ -39,44 +39,39 @@
           <div class="contact-item">
             <div class="item-icon">📍</div>
             <div>
-              <strong>Address</strong>
-              <p>Campus Road, Sector 14, India</p>
+              <b>Address</b>
+              <p>Kisan Innovation Hub, Jaipur-Kota Highway, Rajasthan, India</p>
             </div>
           </div>
 
           <div class="contact-item">
             <div class="item-icon">📧</div>
             <div>
-              <strong>Email</strong>
-              <p>contact@support.org</p>
+              <b>Email</b>
+              <p>experts@kisansetu.in</p>
             </div>
           </div>
 
           <div class="contact-item">
             <div class="item-icon">📞</div>
             <div>
-              <strong>Phone</strong>
-              <p>+91 98765 43210</p>
+              <b>Phone</b>
+              <p>+91 1800 120 4567 (Toll-Free)</p>
             </div>
           </div>
 
           <div class="contact-item">
             <div class="item-icon">🕒</div>
             <div>
-              <strong>Hours</strong>
-              <p>Monday – Friday: 9:00 AM – 6:00 PM</p>
+              <b>Hours</b>
+              <p>Monday – Saturday: 8:00 AM – 7:00 PM</p>
             </div>
           </div>
         </div>
-
-        <div class="db-notice">
-          <span>💾</span>
-          <p>Powered by FastAPI & XAMPP MySQL</p>
-        </div>
-      </aside>
+      </div>
 
       <!-- Right Column: Contact Form -->
-      <section class="form-container">
+      <div class="form-container">
         <h2 class="form-title">Send a Message</h2>
         <p class="form-subtitle">Please enter your information below.</p>
 
@@ -84,7 +79,7 @@
         <div id="alertSuccess" class="alert alert-success" style="display: none;">
           <span class="alert-icon">✓</span>
           <div class="alert-content">
-            <strong id="successTitle">Thank you!</strong>
+            <b id="successTitle">Thank you!</b>
             <p id="successMessage">Your response has been submitted and stored in the database.</p>
           </div>
         </div>
@@ -92,7 +87,7 @@
         <div id="alertError" class="alert alert-error" style="display: none;">
           <span class="alert-icon">⚠</span>
           <div class="alert-content">
-            <strong id="errorTitle">Submission Error</strong>
+            <b id="errorTitle">Submission Error</b>
             <p id="errorMessage">Could not submit form. Please check your backend connection.</p>
           </div>
         </div>
@@ -104,14 +99,14 @@
             <!-- Name -->
             <div class="form-group">
               <label for="name">Full Name <span class="required">*</span></label>
-              <input type="text" id="name" name="name" placeholder="John Doe" required minlength="2">
+              <input type="text" id="name" name="name" placeholder="your-name" required minlength="2">
               <span class="field-error" id="nameError"></span>
             </div>
 
             <!-- Email -->
             <div class="form-group">
               <label for="email">Email Address <span class="required">*</span></label>
-              <input type="email" id="email" name="email" placeholder="john@example.com" required>
+              <input type="email" id="email" name="email" placeholder="name@example.com" required>
               <span class="field-error" id="emailError"></span>
             </div>
 
@@ -144,10 +139,10 @@
             <span class="btn-spinner" id="btnSpinner" style="display: none;"></span>
           </button>
         </form>
-      </section>
+      </div>
 
     </div>
-  </main>
+  </div>
 
   <script src="script.js"></script>
 </body>
