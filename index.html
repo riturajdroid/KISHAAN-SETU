@@ -10,8 +10,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-
-  <!-- Top Navigation Bar -->
+  
   <div class="navbar">
     <div class="nav-container">
       <div class="logo">
@@ -21,11 +20,9 @@
     </div>
   </div>
 
-  <!-- Main Container -->
   <div class="main-container">
     <div class="contact-card-wrapper">
       
-      <!-- Left Column: Information Card -->
       <div class="info-sidebar">
         <div>
           <span class="tagline">EXPERT SUPPORT</span>
@@ -70,12 +67,10 @@
         </div>
       </div>
 
-      <!-- Right Column: Contact Form -->
       <div class="form-container">
         <h2 class="form-title">Send a Message</h2>
         <p class="form-subtitle">Please enter your information below.</p>
 
-        <!-- Feedback Alert Boxes -->
         <div id="alertSuccess" class="alert alert-success" style="display: none;">
           <span class="alert-icon">✓</span>
           <div class="alert-content">
@@ -92,39 +87,33 @@
           </div>
         </div>
 
-        <!-- The Form -->
         <form id="contactForm" novalidate>
           <div class="form-grid">
             
-            <!-- Name -->
             <div class="form-group">
               <label for="name">Full Name <span class="required">*</span></label>
               <input type="text" id="name" name="name" placeholder="your-name" required minlength="2">
               <span class="field-error" id="nameError"></span>
             </div>
 
-            <!-- Email -->
             <div class="form-group">
               <label for="email">Email Address <span class="required">*</span></label>
               <input type="email" id="email" name="email" placeholder="name@example.com" required>
               <span class="field-error" id="emailError"></span>
             </div>
 
-            <!-- Phone -->
             <div class="form-group">
               <label for="phone">Phone Number</label>
               <input type="tel" id="phone" name="phone" placeholder="+91 9876543210">
               <span class="field-error" id="phoneError"></span>
             </div>
 
-            <!-- Subject -->
             <div class="form-group">
               <label for="subject">Subject <span class="required">*</span></label>
               <input type="text" id="subject" name="subject" placeholder="General Inquiry" required minlength="3">
               <span class="field-error" id="subjectError"></span>
             </div>
 
-            <!-- Message -->
             <div class="form-group full-width">
               <label for="message">Message <span class="required">*</span></label>
               <textarea id="message" name="message" rows="5" placeholder="Type your message here..." required minlength="5"></textarea>
@@ -133,7 +122,6 @@
 
           </div>
 
-          <!-- Submit Button -->
           <button type="submit" id="submitBtn" class="submit-btn">
             <span class="btn-text">Submit Response</span>
             <span class="btn-spinner" id="btnSpinner" style="display: none;"></span>

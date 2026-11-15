@@ -1,10 +1,3 @@
-/**
- * Contact Form Client Script
- * ===========================
- * Gathers user input and sends the response to the FastAPI backend.
- */
-
-// Auto-determine backend URL (whether opened on localhost:8000 or via file/LiveServer)
 const isHostedOnBackend = window.location.protocol.startsWith('http') && window.location.port === '8000';
 const API_URL = isHostedOnBackend ? `${window.location.origin}/api/contact` : 'http://localhost:8000/api/contact';
 
@@ -19,14 +12,12 @@ document.addEventListener('DOMContentLoaded', () => {
     hideAlerts();
     clearFieldErrors();
 
-    // 1. Read input values
     const nameVal = document.getElementById('name').value.trim();
     const emailVal = document.getElementById('email').value.trim();
     const phoneVal = document.getElementById('phone').value.trim();
     const subjectVal = document.getElementById('subject').value.trim();
     const messageVal = document.getElementById('message').value.trim();
 
-    // 2. Validate inputs
     let hasError = false;
 
     if (!nameVal || nameVal.length < 2) {
@@ -51,7 +42,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     if (hasError) return;
 
-    // 3. Set loading state
     submitBtn.disabled = true;
     btnSpinner.style.display = 'inline-block';
     btnText.textContent = 'Submitting...';
@@ -64,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
       message: messageVal
     };
 
-    // 4. Send response to FastAPI backend
     try {
       const response = await fetch(API_URL, {
         method: 'POST',
@@ -79,13 +68,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
       const result = await response.json();
 
-      // Show success alert
       showSuccess(
         'Response Received!',
         result.message || 'Your response has been stored in the database.'
       );
 
-      // Reset form fields
       form.reset();
 
     } catch (err) {
@@ -101,7 +88,6 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 });
 
-// Helper Functions
 function isValidEmail(email) {
   const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   return re.test(email);

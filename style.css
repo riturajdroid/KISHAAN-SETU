@@ -12,7 +12,6 @@ body {
   min-height: 100vh;
 }
 
-/* Header */
 .navbar {
   background: #ffffff;
   border-bottom: 1px solid #e2e8f0;
@@ -72,7 +71,6 @@ body {
   overflow: hidden;
 }
 
-/* Left Sidebar */
 .info-sidebar {
   background: #62C809;
   color: #C1FA8F;
@@ -154,7 +152,6 @@ body {
   color: #cbd5e1;
 }
 
-/* Right Form Section */
 .form-container {
   padding: 44px;
 }
@@ -172,7 +169,6 @@ body {
   margin-bottom: 28px;
 }
 
-/* Alerts */
 .alert {
   padding: 14px 18px;
   border-radius: 12px;
@@ -210,7 +206,6 @@ body {
   font-size: 0.82rem;
 }
 
-/* Form Controls */
 .form-grid {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -271,7 +266,6 @@ body {
   min-height: 16px;
 }
 
-/* Submit Button */
 .submit-btn {
   background: #62C809;
   color: #ffffff;
@@ -309,7 +303,6 @@ body {
   animation: spin 0.8s linear infinite;
 }
 
-/* Animations */
 @keyframes spin {
   to { transform: rotate(360deg); }
 }
@@ -319,7 +312,6 @@ body {
   to { opacity: 1; transform: translateY(0); }
 }
 
-/* Responsive */
 @media (max-width: 900px) {
   .contact-card-wrapper {
     grid-template-columns: 1fr;

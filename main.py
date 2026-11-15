@@ -18,9 +18,7 @@ from sqlalchemy.orm import declarative_base, sessionmaker, Session
 
 BASE_DIR = Path(__file__).resolve().parent
 
-# ==============================================================================
-# SQL DATABASE CONFIGURATION (XAMPP MySQL)
-# ==============================================================================
+
 MYSQL_USER = os.getenv("DB_USER", "root")
 MYSQL_PASSWORD = os.getenv("DB_PASSWORD", "")
 MYSQL_HOST = os.getenv("DB_HOST", "localhost")
@@ -34,13 +32,11 @@ SQLITE_FALLBACK_URL = f"sqlite:///{BASE_DIR / 'contacts.db'}"
 engine = None
 
 try:
-    # 1. Connect to MySQL server in XAMPP and create database if it doesn't exist
     root_engine = create_engine(MYSQL_ROOT_URL, connect_args={"connect_timeout": 3})
     with root_engine.connect() as conn:
         conn.execute(text(f"CREATE DATABASE IF NOT EXISTS `{MYSQL_DATABASE}` CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci"))
         conn.commit()
 
-    # 2. Connect to the contact_db database
     engine = create_engine(MYSQL_APP_URL, pool_pre_ping=True)
     with engine.connect() as conn:
         conn.execute(text("SELECT 1"))
@@ -56,9 +52,6 @@ SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
 
 
-# ==============================================================================
-# DATABASE MODEL
-# ==============================================================================
 class ContactSubmission(Base):
     __tablename__ = "contacts"
 
@@ -71,13 +64,9 @@ class ContactSubmission(Base):
     created_at = Column(DateTime, default=datetime.utcnow, nullable=False)
 
 
-# Auto-create the table
 Base.metadata.create_all(bind=engine)
 
 
-# ==============================================================================
-# FORM INPUT SCHEMA
-# ==============================================================================
 class ContactFormRequest(BaseModel):
     name: str = Field(..., min_length=2, max_length=100)
     email: str = Field(..., pattern=r"^[^@\s]+@[^@\s]+\.[^@\s]+$")
@@ -86,9 +75,6 @@ class ContactFormRequest(BaseModel):
     message: str = Field(..., min_length=5, max_length=5000)
 
 
-# ==============================================================================
-# FASTAPI APPLICATION
-# ==============================================================================
 app = FastAPI(title="Contact Form Backend", version="1.0.0")
 
 app.add_middleware(
@@ -100,9 +86,6 @@ app.add_middleware(
 )
 
 
-# ==============================================================================
-# SOLE BACKEND FUNCTIONALITY: GETTING THE FORM RESPONSE
-# ==============================================================================
 @app.post("/api/contact", status_code=status.HTTP_201_CREATED)
 def receive_form_response(payload: ContactFormRequest):
     """Receives contact form input from the user and saves it to the SQL database."""
@@ -135,7 +118,6 @@ def receive_form_response(payload: ContactFormRequest):
         db.close()
 
 
-# Static file routes to serve the page directly
 @app.get("/")
 def serve_index():
     return FileResponse(BASE_DIR / "index.html")
